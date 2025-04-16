@@ -8,8 +8,8 @@
 一开始看不懂就对了，因为不知道知识，也不知道重点
 
 
-AI生成目标大纲：[[attachments/Pasted image 20250415205324.png]]  （grok3生成）
-AI生成一周学习目标大纲：[[attachments/Pasted image 20250415205445.png]]
+AI生成目标大纲：[2天](https://link.csdn.net/?from_id=147258373&target=https%3A%2F%2Fi-blog.csdnimg.cn%2Fdirect%2F8e9799f102114a7f8be541eb2a4c2b09.png)  （grok3生成）
+AI生成一周学习目标大纲：[一周](https://i-blog.csdnimg.cn/direct/7e4ba32b229d4c2287d84ad8348306f9.png)
 那么我们就按照大纲来学习吧！（也是靠AI指引）
 
 ## 学习注意事项
