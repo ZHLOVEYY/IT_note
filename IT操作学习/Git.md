@@ -69,7 +69,7 @@ git log
 - git log可以查看自己commit的历史，非常有用，展示的hash数值是对应commit特有的，可以用于后面的回溯
 - 对比文件等功能也有对应的指令，比如查看特定提交`git show commit-hash -- a`  以及对比两次提交不同：`git diff commit-hash1 commit-hash2 -- a `等但是这部分其实通过前面推荐的软件或者IDE以及插件，可视化看会更好，所以不用记。
 commit后面的就是hash值 ，后面讲到回滚等会有涉及（主要记这个hash值就ok力）
-![[attachments/Pasted image 20250416095454.png]]
+![[../attachments/Pasted image 20250416095454.png]]
 
 #### 分支操作入门
 - 目的：了解分支的概念以及基本操作
