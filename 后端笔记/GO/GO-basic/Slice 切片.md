@@ -8,7 +8,7 @@
 - 理解res := \[]int{}   或者  var res \[]int 或者 res := make(\[]int,0)   不同的创建方式，经常还是用 make 更加直观
 ###### 数组和切片的区别
 array：数组   （不过变量命名无所谓）   slice：切片
-![[../../attachments/Pasted image 20250525104949.png]]
+![[../../../attachments/Pasted image 20250525104949.png]]
 基本用的都是切片
 #### append函数
 ###### 通过append看切片和扩容

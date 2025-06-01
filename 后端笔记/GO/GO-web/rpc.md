@@ -1,7 +1,7 @@
 电商系统迅速发展后，有很多服务需要拆分，比如用户服务，商品服务，支付服务，订单服务，售后服务等  这些服务之间的相互调用就需要使用rpc
 
 rpc框架：
-![[../../attachments/Pasted image 20250427144445.png]]
+![[../../../attachments/Pasted image 20250427144445.png]]
 
 服务注册中心：负责本地服务发布为远程服务，管理提供给消费者
 消费者：通过远程代理对象调用远程服务
@@ -139,6 +139,7 @@ syntax = "proto3";
 package proto; //通过 package 区分不同的命名空间
 //proto.ProgramRequest和other.ProgramRequest是不同的命名空间下的相同消息名
 option go_package = "./protooo"; //指定 Go 包路径（生成对应文件夹）
+//比如 ./protoo;server 就是创建 protoo 文件夹，里面 package 是 server
 
 service Program{
     rpc Getinfo(ProgramRequest) returns(ProgramResponse){} //定义服务端处理函数

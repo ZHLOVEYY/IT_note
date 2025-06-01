@@ -589,8 +589,7 @@ can use the array created by a, then use -- to test b (no need to create to arra
 ###### leetcode 202 
 when we need to check for existence , use set!!
 
-###### leetcode 1
-map{key:value}  use the element's value in arrary to be key, not index because we want to search for element's value !  index can be stored as value
+
 
 ###### leetcode 383
 for each word in a string, use for to iterate, it's type "rune"
@@ -1217,3 +1216,127 @@ map\[\*Node\]\*Node 含义是建立原节点到新节点，需要的是存储的
 快速访问用hash，移动顺序用链表，两个要求
 对于put和get操作，明确对应key在和不在时怎么变化
 moveToHead 可以由remove和addToHead组成
+
+
+######  [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/)
+括号的是需要有匹配顺序的，如果直接有右括号不行  
+\[ ( ] ) 这样有交叉括号也不行
+
+######  [155. 最小栈](https://leetcode.cn/problems/min-stack/)
+构建另外一个栈，原来的栈只要是最小的，另外一边就放入对应的最小值。 原来栈有更小的放入后，另一边的栈最小值也更新，后面也都放入这个    （一种“永久标记”）
+
+######  [394. 字符串解码](https://leetcode.cn/problems/decode-string/)
+嵌套括号，需要由内到外构建字符-> 栈的特点**先入后出**
+数字放 multi    字母放 res 遇到\[  就同时放入栈， 遇到\]就出栈，res = 之前 res+现在 res*\multi
+
+######  [739. 每日温度](https://leetcode.cn/problems/daily-temperatures/)
+单调栈类题
+单调栈中同时存放 i 以及对应的温度，如果有大的进来就做差然后取出对应的 i（温度）。这样维护
+stack 中真实存放的只有 i，需要比较的时候直接利用数组索引去查就可以
+
+######  [84. 柱状图中最大的矩形](https://leetcode.cn/problems/largest-rectangle-in-histogram/)
+单调栈类题
+暴力思路：对于任意一个矩形，向左边和右边分别扩散看能扩散多远  
+
+改进：空间换时间，用单调栈
+每一次计算最大宽度的时候，没有去遍历，而是使用了栈里存放的下标信息，以 O(1) 的时间复杂度计算最大宽度。
+从左向右遍历，有严格小的时候就说明之前高的那个是固定了，弹出（符合后进先出的特点）。然后最右边增加一个 0 的哨兵，再从右到左出栈
+注意正推和回推时候的公式 需要先 pop 再作差代表宽度
+
+######  [数组中的第K个最大元素](https://leetcode.cn/problems/kth-largest-element-in-an-array/)
+直接 sorted
+或者快速排序
+
+######  [347. 前 K 个高频元素](https://leetcode.cn/problems/top-k-frequent-elements/)
+方法很多，利用 counter 或者 heap 都可以
+也可以快速排序或桶排序
+
+[295. 数据流的中位数](https://leetcode.cn/problems/find-median-from-data-stream/)
+使用两个堆实现是最好的
+如果使用单一的数组：每次调用`findMedian()`时都对整个数组进行排序，导致时间复杂度达到O(nlogn) （排序所需要的算法）  虽然说这样插入上是 O（1）
+而最优解应该实现O(logn)的插入和O(1)的查询
+- 同时nums = sorted(self.nums) # 仅排序一次 可以后面统一用 nums 而不是总是 self 
+
+######  [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
+枚举的话，第一天后面 n-1种可能，第二天后面 n-2种 ，加起来是 O（n 方） 不好搞
+贪心思想：若在前 i 天选择买入，若想达到最高利润，**则一定选择价格最低的交易日买入**
+分析：
+- 前 i 天的最小 cost 我们需要获取  （这个遍历一次就行）
+- 第 i 天的最大利润 = max（i 天之前的最大利润，第 i 天的钱-前 i 天的最小 cost）
+这样其实只有遍历一次价格表就可以了
+
+######  [55. 跳跃游戏](https://leetcode.cn/problems/jump-game/)
+掌握贪心条件
+设置一个“最远可到达距离” 进行维护，同时记得一开始 daoi 就需要判断一下
+
+######  [45. 跳跃游戏 II](https://leetcode.cn/problems/jump-game-ii/)
+不同之处在于返回最小跳跃次数
+自己想法：应该是维护一个 minjump，应该要用到动态规划
+可以建桥的方法->贪心
+或者动规划   或者动规加贪心（每次从最能跳的地方开始追随到 i）
+
+###### [763. 划分字母区间](https://leetcode.cn/problems/partition-labels/)
+列出每个字母的所在区间（一共 26 个字母最多，不多）
+然后就是合并区间->几个区间的长度就是答案，最长就是整个算一个
+
+
+######  [1. 两数之和](https://leetcode.cn/problems/two-sum/)
+Map {key:value}使用数组中元素的值作为键，索引可以作为值存储。
+因为一定有答案，所以这样只用遍历一次链表
+
+
+######   [49. 字母异位词分组](https://leetcode.cn/problems/group-anagrams/)
+排序后(如果可以放一块就是一样的)的字符串当作 key，原字符串组成的列表（即答案）当作 value 
+
+
+[128. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence/)
+如果采用排序然后算 max 的方法，排序复杂度有 ologn   那么看到要求 O（n），所以说用的就应该是哈希表
+
+
+
+# 随意打击
+
+###### [767. 重构字符串](https://leetcode.cn/problems/reorganize-string/)
+思路：
+每次取出统计中数目最多的两个字母拼在一起，后面再拼别的
+GO：
+需要用到 heap.Init() 需要自己定义结构体和方法 Less，Pop，Push 等
+关键在于如何存入数据以及如何正确取出和返回
+Python：
+直接用 collection统计这也....太方便了吧，果然是思路导向的
+
+
+# 排序算法
+
+#### 快速排序
+######  215的快速排序 （分治）： 
+非常明显，较大分块
+``` python
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        def quick_select(nums,k):
+            # 随机选取基准
+                pivot = random.choice(nums)
+                big,equal,small = [],[],[]
+                # 将大于，小于，等于的 pivot 元素划分到 big，small，equal 中
+                for num in nums:
+                    if num > pivot:
+                        big.append(num)
+                    elif num < pivot:
+                        small.append(num)
+                    else:
+                        equal.append(num)
+                if k <= len(big):
+                    # 第 k 大元素在 big 中，递归划分
+                    return quick_select(big, k)
+                if len(nums) - len(small) < k:
+                    # 第 k 大元素在 small 中，递归划分
+                      return quick_select(small, k + len(small)-len(nums)) # 画图理解可以
+                return pivot
+        return quick_select(nums,k)
+```
+
+
+
+
+
