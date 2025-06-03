@@ -14,6 +14,7 @@ docker 快速部署 rabbitMQ：`docker run -d --name rabbitmq -p 5672:5672 -p 15
 - 5672：AMQP 端口
 - 15672：管理界面端口，访问   http://localhost:15672 （ 默认用户/密码：guest/guest）
 
+`http://localhost:15672` 利用 guest/guest 登录后可以查看队列中的内容
 #### 生产者（发送端）
 创建 producer文件夹下创建producer.go ，然后单独 go run（同时 go run 后面的消费者记得）
 ``` GO
