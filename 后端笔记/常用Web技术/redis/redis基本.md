@@ -43,6 +43,9 @@ RPUSH message_queue "msg1" "msg2" "msg3" # 推入消息
 LPOP message_queue # 弹出消息，msg1
 LRANGE message_queue 0 -1 # 查看队列所有元素
 
+#需要唯一性 → ​​Set​​。
+#需要顺序或重复元素 → ​​List​​。
+
 # 操作set
 SADD myset "apple" "banana" "apple" # 添加元素，自动去重
 SMEMBERS myset # 查看集合

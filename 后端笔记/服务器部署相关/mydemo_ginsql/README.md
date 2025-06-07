@@ -4,7 +4,7 @@ docker 中的 exec 检查mysql -u user -p ，用于检查本地的是否 ok  （
 注意终端中操作需要 docker exec it  加在指令前面
 `docker exec -it <容器名称或ID> /bin/bash`   结合 sql 自己查
 
-本地的docker-compose up --build 可以运行起来说明就是完全 ok 的
+本地的docker-compose up --build 可以运行起来说明就是完全 ok 的，就是迁移上云
 #### 安装docker-compose
 ``` bash
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.23.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -22,7 +22,8 @@ https://cloud.tencent.com/document/product/1207/44643    ssh 连接
 - chmod 600 ~/.ssh/1234.pem      记得添加权限，不然会认定为不安全
 
 #### 传输和解压
-`tar -czvf gin-mysql-demo.tar.gz .`  本地进行文件压缩
+`tar -czvf gin-mysql-demo.tar.gz .`  本地进行文件压缩  在目标的文件夹下面（下面！）解压！同时这个名字是自己定义的文件的名字，需要注意
+
 
 - scp 上传似乎有问题，`scp gin-mysql-demo.tar.gz root@<服务器公网IP>:/root/`
 好像没有开启，不过腾讯云的界面中，直接上传是可以的，更加方便 （一个电脑的图标）

@@ -346,7 +346,7 @@ JOIN (
     #或者datediff(a.event_date, b.first_login) = 1
 ```
 
-
+ 
 ######  [2356. 每位教师所教授的科目种类的数量](https://leetcode.cn/problems/number-of-unique-subjects-taught-by-each-teacher/)
 第一次搞出来
 - 正解
